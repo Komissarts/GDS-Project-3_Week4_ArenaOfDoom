@@ -3,7 +3,10 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Lvl1Enemy
+  - Lvl2Enemy
+  - Lvl3Enemy
   layers:
   - Default
   - TransparentFX
