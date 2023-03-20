@@ -12,7 +12,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float accelRate = 0.5f;
 
     public float jumpingPower = 16f;
-    private bool isFacingRight = false;
+    public bool isFacingRight = false;
 
     [SerializeField] public Rigidbody2D PlayerRB;
     [SerializeField] Transform groundCheck;

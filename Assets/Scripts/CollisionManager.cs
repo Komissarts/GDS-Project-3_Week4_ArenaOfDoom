@@ -14,7 +14,7 @@ public class CollisionManager : MonoBehaviour
     int scoreMultiplier;
 
     EnemyMovement enemyMoveClass;
-    PlayerMovement playMoveClass;
+    [SerializeField] PlayerMovement playMoveClass;
 
     //get reference to movement script
     [SerializeField] float speedMultiplier = 1.5f;
@@ -98,8 +98,10 @@ public class CollisionManager : MonoBehaviour
         else
         {
             Death(collision.gameObject);
+            enemyMoveClass = collision.gameObject.GetComponent<EnemyMovement>();
             enemyMoveClass.TakeDamage();
             score = score + (100 * scoreMultiplier);
+            enemyMoveClass = null; //???
         }
     }
 
