@@ -4,10 +4,15 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    float horizontal;
-    float speed = 8f;
-    float jumpingPower = 16f;
-    private bool isFacingRight = true;
+    float horizontalInput;
+    float horizontalMaintained;
+    [SerializeField] float speed = 8f;
+    float speedDif;
+    float movement;
+    [SerializeField] float accelRate = 0.5f;
+
+    public float jumpingPower = 16f;
+    private bool isFacingRight = false;
 
     [SerializeField] Rigidbody2D PlayerRB;
     [SerializeField] Transform groundCheck;
@@ -24,7 +29,16 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        horizontal = Input.GetAxisRaw("Horizontal");
+        speedDif = speed - PlayerRB.velocity.x;
+        movement = speedDif * accelRate;
+
+        horizontalInput = Input.GetAxisRaw("Horizontal");
+        
+        if(horizontalInput != 0f)
+        {
+            horizontalMaintained = horizontalInput;
+        }
+
 
         if (Input.GetButtonDown("Jump"))
         {
@@ -33,6 +47,7 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetButtonUp("Jump") && PlayerRB.velocity.y > 0f)
         {
             PlayerRB.velocity = new Vector2(PlayerRB.velocity.x, PlayerRB.velocity.y * 0.5f);
+            //PlayerRB.AddForce(movement * Vector2.right);
         }
 
         Flip();
@@ -40,12 +55,12 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        PlayerRB.velocity = new Vector2(horizontal * speed, PlayerRB.velocity.y);
+        PlayerRB.velocity = new Vector2(horizontalMaintained * speed, PlayerRB.velocity.y);
     }
 
     private void Flip()
     {
-        if(isFacingRight && horizontal < 0f || !isFacingRight && horizontal > 0f)
+        if(isFacingRight && horizontalMaintained < 0f || !isFacingRight && horizontalMaintained > 0f)
         {
             isFacingRight = !isFacingRight;
             Vector3 localScale = transform.localScale;
