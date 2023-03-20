@@ -43,6 +43,9 @@ public class CollisionManager : MonoBehaviour
                 scoreMultiplier = 5;
                 HeightCheck(collision);
                 break;
+            case "EnemyOrb":
+                score = score + (100 * 2);
+                break;
             default:
                 break;
         }

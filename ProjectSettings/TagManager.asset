@@ -8,6 +8,7 @@ TagManager:
   - Lvl2Enemy
   - Lvl3Enemy
   - EnemyDrone
+  - EnemyOrb
   layers:
   - Default
   - TransparentFX
