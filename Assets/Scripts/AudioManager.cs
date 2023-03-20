@@ -13,19 +13,19 @@ public class AudioManager : MonoBehaviour
 
     private void Awake()
     {
-        if (instance == null)
+        if (Instance == null)
         {
             Instance = this;
             DontDestroyOnLoad(gameObject);
         }
         else 
         {
-            Destory(gameObject);
+            Destroy(gameObject);
         }
     }
 
 
-    public PlaySFX(string name)
+    public void PlaySFX(string name)
     {   
         Sound s = Array.Find(sfx, x => x.name == name);
 
