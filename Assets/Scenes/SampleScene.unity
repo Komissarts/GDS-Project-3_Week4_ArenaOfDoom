@@ -674,6 +674,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lives: 3
+  speedMultiplier: 2
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -1336,7 +1337,7 @@ GameObject:
   - component: {fileID: 1776172356}
   m_Layer: 0
   m_Name: SpeedPower
-  m_TagString: Untagged
+  m_TagString: SpeedPowerup
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1441,7 +1442,7 @@ GameObject:
   - component: {fileID: 2018181450}
   m_Layer: 0
   m_Name: GravPower
-  m_TagString: Untagged
+  m_TagString: GravPowerup
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

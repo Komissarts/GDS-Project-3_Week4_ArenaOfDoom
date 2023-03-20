@@ -9,6 +9,8 @@ TagManager:
   - Lvl3Enemy
   - EnemyDrone
   - EnemyOrb
+  - GravPowerup
+  - SpeedPowerup
   layers:
   - Default
   - TransparentFX

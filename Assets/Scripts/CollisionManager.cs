@@ -1,14 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CollisionManager : MonoBehaviour
 {
     BoxCollider2D bc;
     Rigidbody2D rb;
+
     [SerializeField] int lives = 3;
+
     int score = 0;
     int scoreMultiplier;
+
+    //get reference to movement script
+    [SerializeField] int speedMultiplier = 2;
 
     // Start is called before the first frame update
     void Start()
@@ -46,6 +52,12 @@ public class CollisionManager : MonoBehaviour
             case "EnemyOrb":
                 score = score + (100 * 2);
                 break;
+            case "GravPowerup":
+                //decrease gravity
+                break;
+            case "SpeedPowerup":
+                //increase speed
+                break;
             default:
                 break;
         }
@@ -62,7 +74,8 @@ public class CollisionManager : MonoBehaviour
             }
             else
             {
-                //Send to "Game Over" scene
+                //SceneManager.LoadScene();
+                //^ Send to "Game Over" scene ^
             }
         }
         else
