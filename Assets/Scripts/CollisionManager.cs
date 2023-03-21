@@ -54,7 +54,7 @@ public class CollisionManager : MonoBehaviour
                 scoreMultiplier = 5;
                 HeightCheck(collision);
                 break;
-            case "Lava": //Need to add "Lava" tag to the lava sprites
+            case "Lava":
                 Death(this);
                 if (lives > 0)
                 {
@@ -69,11 +69,11 @@ public class CollisionManager : MonoBehaviour
                 score = score + (100 * 2);
                 break;
             case "GravPowerup":
-                //playMoveClass.PlayerRB.gravityScale = playMoveClass.PlayerRB.gravityScale * gravMultiplier;
+                playMoveClass.PlayerRB.gravityScale = playMoveClass.PlayerRB.gravityScale * gravMultiplier;
                 StartCoroutine(GravPowerup(powerupDuration));
                 break;
             case "SpeedPowerup":
-                //playMoveClass.speed = playMoveClass.speed * speedMultiplier;
+                playMoveClass.speed = playMoveClass.speed * speedMultiplier;
                 StartCoroutine(SpeedPowerup(powerupDuration));
                 break;
             default:
@@ -112,13 +112,13 @@ public class CollisionManager : MonoBehaviour
     {
         yield return new WaitForSeconds(seconds);
 
-        //playMoveClass.PlayerRB.gravityScale = playMoveClass.PlayerRB.gravityScale / gravMultiplier;
+        playMoveClass.PlayerRB.gravityScale = playMoveClass.PlayerRB.gravityScale / gravMultiplier;
     }
 
     IEnumerator SpeedPowerup(int seconds)
     {
         yield return new WaitForSeconds(seconds);
 
-        //playMoveClass.speed = playMoveClass.speed * speedMultiplier;
+        playMoveClass.speed = playMoveClass.speed * speedMultiplier;
     }
 }
