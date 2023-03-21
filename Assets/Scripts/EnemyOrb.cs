@@ -6,7 +6,7 @@ public class EnemyOrb : MonoBehaviour
 {
     [SerializeField] GameObject[] enemyPowerLvls;
     public GameObject prevPower;
-    [SerializeField] float moveSpeed = 100.0f;
+    [SerializeField] float moveSpeed = 10.0f;
 
     Rigidbody2D rb;
 
