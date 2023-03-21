@@ -11,6 +11,7 @@ TagManager:
   - EnemyOrb
   - GravPowerup
   - SpeedPowerup
+  - Lava
   layers:
   - Default
   - TransparentFX

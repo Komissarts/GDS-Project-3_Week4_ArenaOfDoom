@@ -55,7 +55,7 @@ public class CollisionManager : MonoBehaviour
                 HeightCheck(collision);
                 break;
             case "Lava":
-                Death(this);
+                Death(this.gameObject);
                 if (lives > 0)
                 {
                     lives = lives - 1;
@@ -85,7 +85,7 @@ public class CollisionManager : MonoBehaviour
     {
         if (collision.gameObject.transform.position.y > this.transform.position.y)
         {
-            Death(this);
+            Death(this.gameObject);
             if (lives > 0)
             {
                 lives = lives - 1;
@@ -103,7 +103,7 @@ public class CollisionManager : MonoBehaviour
         }
     }
 
-    void Death(Object obj)
+    void Death(GameObject obj)
     {
         Destroy(obj);
     }
