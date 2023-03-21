@@ -13,6 +13,8 @@ public class CollisionManager : MonoBehaviour
     int score = 0;
     int scoreMultiplier;
 
+    EnemyMovement enemyMoveClass;
+
     //get reference to movement script
     [SerializeField] int speedMultiplier = 2;
 
@@ -57,8 +59,7 @@ public class CollisionManager : MonoBehaviour
                 }
                 else
                 {
-                    //SceneManager.LoadScene();
-                    //^ Send to "Game Over" scene ^
+                    SceneManager.LoadScene("GameOver");
                 }
                 break;
             case "EnemyOrb":
@@ -86,13 +87,13 @@ public class CollisionManager : MonoBehaviour
             }
             else
             {
-                //SceneManager.LoadScene();
-                //^ Send to "Game Over" scene ^
+                SceneManager.LoadScene("GameOver");
             }
         }
         else
         {
             Death(collision.gameObject);
+            enemyMoveClass.TakeDamage();
             score = score + (100 * scoreMultiplier);
         }
     }

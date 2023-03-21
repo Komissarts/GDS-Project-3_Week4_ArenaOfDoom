@@ -5,18 +5,25 @@ using UnityEngine;
 public class EnemyOrb : MonoBehaviour
 {
     [SerializeField] GameObject[] enemyPowerLvls;
-    GameObject prevPower;
+    public GameObject prevPower;
+
+    Rigidbody2D rb;
 
     // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine(Transform(5));
+        rb = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
     void Update()
     {
         
+    }
+
+    public void StartCountdown()
+    {
+        StartCoroutine(Transform(5));
     }
 
     IEnumerator Transform(int seconds)
