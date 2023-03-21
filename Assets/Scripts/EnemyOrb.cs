@@ -6,6 +6,7 @@ public class EnemyOrb : MonoBehaviour
 {
     [SerializeField] GameObject[] enemyPowerLvls;
     public GameObject prevPower;
+    [SerializeField] float moveSpeed = 100.0f;
 
     Rigidbody2D rb;
 
@@ -13,6 +14,8 @@ public class EnemyOrb : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+
+        rb.AddForce((new Vector2(1, 1) * moveSpeed), ForceMode2D.Impulse);
     }
 
     // Update is called once per frame
