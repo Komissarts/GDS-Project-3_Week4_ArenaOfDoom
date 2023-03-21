@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemyMovement : MonoBehaviour
 {
     [SerializeField] GameObject enemyOrb;
-    EnemyOrb enemyOrbClass;
+    [SerializeField] EnemyOrb enemyOrbClass;
 
     float moveSpeed;
 

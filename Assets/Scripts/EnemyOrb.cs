@@ -6,16 +6,25 @@ public class EnemyOrb : MonoBehaviour
 {
     [SerializeField] GameObject[] enemyPowerLvls;
     public GameObject prevPower;
-    [SerializeField] float moveSpeed = 100.0f;
+    [SerializeField] float moveSpeed = 10.0f;
 
     Rigidbody2D rb;
+
+    [SerializeField] PlayerMovement playMoveClass;
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
 
-        rb.AddForce((new Vector2(1, 1) * moveSpeed), ForceMode2D.Impulse);
+        if (playMoveClass.isFacingRight)
+        {
+            rb.AddForce((new Vector2(1, 1) * moveSpeed), ForceMode2D.Impulse);
+        }
+        else
+        {
+            rb.AddForce((new Vector2(-1, 1) * moveSpeed), ForceMode2D.Impulse);
+        }
     }
 
     // Update is called once per frame
