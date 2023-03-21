@@ -49,6 +49,18 @@ public class CollisionManager : MonoBehaviour
                 scoreMultiplier = 5;
                 HeightCheck(collision);
                 break;
+            case "Lava": //Need to add "Lava" tag to the lava sprites
+                Death(this);
+                if (lives > 0)
+                {
+                    lives = lives - 1;
+                }
+                else
+                {
+                    //SceneManager.LoadScene();
+                    //^ Send to "Game Over" scene ^
+                }
+                break;
             case "EnemyOrb":
                 score = score + (100 * 2);
                 break;
