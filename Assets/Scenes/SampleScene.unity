@@ -138,7 +138,7 @@ GameObject:
   - component: {fileID: 55149631}
   m_Layer: 0
   m_Name: EnemyOrb
-  m_TagString: Untagged
+  m_TagString: EnemyOrb
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -807,7 +807,7 @@ GameObject:
   - component: {fileID: 722379713}
   m_Layer: 0
   m_Name: EnemyDrone
-  m_TagString: Untagged
+  m_TagString: EnemyDrone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
