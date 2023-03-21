@@ -14,9 +14,12 @@ public class CollisionManager : MonoBehaviour
     int scoreMultiplier;
 
     EnemyMovement enemyMoveClass;
+    PlayerMovement playMoveClass;
 
     //get reference to movement script
-    [SerializeField] int speedMultiplier = 2;
+    [SerializeField] float speedMultiplier = 1.5f;
+    [SerializeField] float gravMultiplier = 0.5f;
+    [SerializeField] int powerupDuration = 5;
 
     // Start is called before the first frame update
     void Start()
@@ -66,10 +69,12 @@ public class CollisionManager : MonoBehaviour
                 score = score + (100 * 2);
                 break;
             case "GravPowerup":
-                //decrease gravity
+                //playMoveClass.PlayerRB.gravityScale = playMoveClass.PlayerRB.gravityScale * gravMultiplier;
+                StartCoroutine(GravPowerup(powerupDuration));
                 break;
             case "SpeedPowerup":
-                //increase speed
+                //playMoveClass.speed = playMoveClass.speed * speedMultiplier;
+                StartCoroutine(SpeedPowerup(powerupDuration));
                 break;
             default:
                 break;
@@ -101,5 +106,19 @@ public class CollisionManager : MonoBehaviour
     void Death(Object obj)
     {
         Destroy(obj);
+    }
+
+    IEnumerator GravPowerup(int seconds)
+    {
+        yield return new WaitForSeconds(seconds);
+
+        //playMoveClass.PlayerRB.gravityScale = playMoveClass.PlayerRB.gravityScale / gravMultiplier;
+    }
+
+    IEnumerator SpeedPowerup(int seconds)
+    {
+        yield return new WaitForSeconds(seconds);
+
+        //playMoveClass.speed = playMoveClass.speed * speedMultiplier;
     }
 }
