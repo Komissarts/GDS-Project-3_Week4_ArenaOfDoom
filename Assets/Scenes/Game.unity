@@ -148,6 +148,10 @@ PrefabInstance:
       value: S4PlayerCollide
       objectReference: {fileID: 0}
     - target: {fileID: 3084145843973698821, guid: a361eb5647fc5b845b8cf982e65ba448, type: 3}
+      propertyPath: sfx.Array.data[4].name
+      value: S5KilledORKnockedout
+      objectReference: {fileID: 0}
+    - target: {fileID: 3084145843973698821, guid: a361eb5647fc5b845b8cf982e65ba448, type: 3}
       propertyPath: sfx.Array.data[5].name
       value: S6Respawn
       objectReference: {fileID: 0}
