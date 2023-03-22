@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
     private GameObject player;
     public Vector2 spawnPos = new Vector3(-15, 1);
     public GameObject[] enemySpawnBoxes;
+    public GameObject enemy;
     // Start is called before the first frame update
     private void Awake()
     {
