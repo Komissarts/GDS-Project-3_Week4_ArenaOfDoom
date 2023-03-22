@@ -16,7 +16,7 @@ public class CollisionManager : MonoBehaviour
     int scoreMultiplier;
 
     EnemyMovement enemyMoveClass;
-    PlayerMovement playMoveClass;
+    [SerializeField] PlayerMovement playMoveClass;
 
     //get reference to movement script
     [SerializeField] float speedMultiplier = 1.5f;
@@ -28,7 +28,6 @@ public class CollisionManager : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         bc = GetComponent<BoxCollider2D>();
-        playMoveClass = GetComponent<PlayerMovement>();
     }
 
     void Start()
@@ -65,12 +64,10 @@ public class CollisionManager : MonoBehaviour
             case "GravPowerup":
                 playMoveClass.PlayerRB.gravityScale = playMoveClass.PlayerRB.gravityScale * gravMultiplier;
                 StartCoroutine(GravPowerup(powerupDuration));
-                collision.gameObject.SetActive(false);
                 break;
             case "SpeedPowerup":
                 playMoveClass.speed = playMoveClass.speed * speedMultiplier;
                 StartCoroutine(SpeedPowerup(powerupDuration));
-                collision.gameObject.SetActive(false);
                 break;
             default:
                 break;
@@ -139,6 +136,6 @@ public class CollisionManager : MonoBehaviour
     {
         yield return new WaitForSeconds(seconds);
 
-        playMoveClass.speed = playMoveClass.speed / speedMultiplier;
+        playMoveClass.speed = playMoveClass.speed * speedMultiplier;
     }
 }

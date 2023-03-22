@@ -21,7 +21,7 @@ public class SpawnBox : MonoBehaviour
 
     void SpawnEnemy()
     {
-        int index = Random.Range(0, (SpawnPoint.Length));
+        int index = Random.Range(0, (SpawnPoint.Length - 1));
         Instantiate(objToSpawn, SpawnPoint[index].transform.position, Quaternion.identity);
         AudioManager.Instance.PlaySFX("S9Spawn");
     }
