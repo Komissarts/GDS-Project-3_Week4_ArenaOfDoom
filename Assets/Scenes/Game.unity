@@ -1098,11 +1098,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93d3dc522a901d94eb8010a7a2efc7b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SpawnPoint:
-  - {fileID: 603140939}
-  - {fileID: 542875489}
-  - {fileID: 444858145}
-  objToSpawn: {fileID: 2352538853331501688, guid: 58e2587fec8ec424085b49ab9454ee38, type: 3}
+  spawnPoint: {fileID: 0}
 --- !u!4 &711974203
 Transform:
   m_ObjectHideFlags: 0
@@ -1402,10 +1398,10 @@ MonoBehaviour:
   colM: {fileID: 0}
   player: {fileID: 6154568908018301904}
   spawnPos: {x: -15, y: 1}
-  enemySpawnBoxes:
-  - {fileID: 2144100415}
-  - {fileID: 1764744682}
-  - {fileID: 1833309421}
+  enemySpawnPoints:
+  - {fileID: 542875489}
+  - {fileID: 444858145}
+  - {fileID: 603140939}
   enemy: {fileID: 2352538853331501688, guid: 58e2587fec8ec424085b49ab9454ee38, type: 3}
 --- !u!4 &1019467234
 Transform:
@@ -4332,11 +4328,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5595117104283321169, guid: 849a9fd8bccb00546bfc457433d707d2, type: 3}
   m_PrefabInstance: {fileID: 1833508393}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1764744682 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 462054049941707816, guid: b4f1a52ffc0278b4f95e11cccf2be5bc, type: 3}
-  m_PrefabInstance: {fileID: 1848281361}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1773403687
 GameObject:
   m_ObjectHideFlags: 0
@@ -4549,11 +4540,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 8.99, y: 0.62}
   m_EdgeRadius: 0
---- !u!1 &1833309421 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 462054049941707816, guid: b4f1a52ffc0278b4f95e11cccf2be5bc, type: 3}
-  m_PrefabInstance: {fileID: 478518078}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1833508393
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5087,11 +5073,6 @@ Transform:
   m_Father: {fileID: 819198693}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &2144100415 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 462054049941707816, guid: b4f1a52ffc0278b4f95e11cccf2be5bc, type: 3}
-  m_PrefabInstance: {fileID: 397574962}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1829317516975397094
 PrefabInstance:
   m_ObjectHideFlags: 0
