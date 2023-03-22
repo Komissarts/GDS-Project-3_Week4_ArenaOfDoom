@@ -8,7 +8,8 @@ public class CollisionManager : MonoBehaviour
     BoxCollider2D bc;
     Rigidbody2D rb;
 
-    public int lives { get; set; }
+    [SerializeField]
+    public int lives = 3;
     public bool dead { get; set; }
 
     int score = 0;
@@ -31,7 +32,6 @@ public class CollisionManager : MonoBehaviour
 
     void Start()
     {
-        lives = 3;
         dead = false;
     }
 
@@ -115,15 +115,10 @@ public class CollisionManager : MonoBehaviour
 
     void Death(GameObject obj)
     {
-        obj.SetActive(false);
-        dead = true;
-        if (lives > 0)
+        if (dead == false)
         {
-            lives = lives - 1;
-        }
-        else
-        {
-            SceneManager.LoadScene("GameOver");
+            obj.SetActive(false);
+            dead = true;
         }
     }
 

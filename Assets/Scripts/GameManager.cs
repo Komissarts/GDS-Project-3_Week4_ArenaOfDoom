@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -24,18 +25,20 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (colM.dead == true)
+        if (colM.dead == true && colM.lives > 0)
             StartCoroutine(Respawn());
+        else if (colM.dead == true && colM.lives == 0)
+        {
+            SceneManager.LoadScene("GameOver");
+        }
     }
 
     IEnumerator Respawn()
     {
-        if (colM.lives > 0)
-        {
-            yield return new WaitForSeconds(1);
-            player.transform.position = spawnPos;
-            player.SetActive(true);
-            colM.dead = false;
-        }
+        colM.lives -= 1;
+        yield return new WaitForSeconds(1);
+        player.transform.position = spawnPos;
+        player.SetActive(true);
+        colM.dead = false;
     }
 }

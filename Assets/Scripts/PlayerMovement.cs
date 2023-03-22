@@ -6,7 +6,7 @@ public class PlayerMovement : MonoBehaviour
 {
     float horizontalInput;
     float horizontalMaintained;
-    [SerializeField] public float speed = 8f;
+    [SerializeField] public float speed = 5f;
     float speedDif;
     float movement;
     [SerializeField] float accelRate = 0.5f;
