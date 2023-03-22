@@ -24,8 +24,9 @@ public class CollisionManager : MonoBehaviour
     [SerializeField] float speedMultiplier = 1.5f;
     [SerializeField] float gravMultiplier = 0.5f;
     [SerializeField] int powerupDuration = 5;
-
-    public TextMeshProUGUI scoreTxt;
+  
+    //[SerializeField] public TextMeshProUGUI scoreTxt;
+    public ScoreManager scoreManager;
 
     // Start is called before the first frame update
     private void Awake()
@@ -43,7 +44,7 @@ public class CollisionManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        scoreTxt.text = score.ToString();
+        scoreManager.UpdateScore(score.ToString());
     }
 
     void OnCollisionEnter2D(Collision2D collision)
