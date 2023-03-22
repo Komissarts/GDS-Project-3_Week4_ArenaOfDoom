@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+using TMPro;
 
 public class CollisionManager : MonoBehaviour
 {
@@ -23,6 +25,8 @@ public class CollisionManager : MonoBehaviour
     [SerializeField] float gravMultiplier = 0.5f;
     [SerializeField] int powerupDuration = 5;
 
+    public TextMeshProUGUI scoreTxt;
+
     // Start is called before the first frame update
     private void Awake()
     {
@@ -39,7 +43,7 @@ public class CollisionManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        scoreTxt.text = score.ToString();
     }
 
     void OnCollisionEnter2D(Collision2D collision)
