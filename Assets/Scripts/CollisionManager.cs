@@ -85,6 +85,7 @@ public class CollisionManager : MonoBehaviour
             case "EnemyOrb":
                 Debug.Log("Orb collected");
                 score = score + (100 * 2);
+                AudioManager.Instance.PlaySFX("S7PositiveSound");
                 break;
         }
     }
@@ -110,6 +111,7 @@ public class CollisionManager : MonoBehaviour
             enemyMoveClass.TakeDamage();
             score = score + (100 * scoreMultiplier);
             enemyMoveClass = null; //???
+
         }
     }
 

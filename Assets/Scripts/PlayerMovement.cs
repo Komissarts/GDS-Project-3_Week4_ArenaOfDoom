@@ -81,6 +81,8 @@ public class PlayerMovement : MonoBehaviour
             //updatedJumpingPower = jumpingPower * jumpingPower;
 
             PlayerRB.velocity = new Vector2(PlayerRB.velocity.x, updatedJumpingPower);
+            AudioManager.Instance.PlaySFX("S4PlayerCollide");
+
         }
         if (Input.GetButtonUp("Jump") && PlayerRB.velocity.y > 0f)
         {
@@ -90,6 +92,10 @@ public class PlayerMovement : MonoBehaviour
             //PlayerRB.AddForce(movement * Vector2.right);
         }
 
+        /*while (PlayerRB.velocity.x != 0f){
+            AudioManager.Instance.PlaySFX("S1Walk");
+        }
+        */
         Flip();
     }
 

@@ -12,6 +12,8 @@ public class EnemyMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        AudioManager.Instance.PlaySFX("S8OminousEnemy");
+
         switch(this.gameObject.tag)
         {
             case "Lvl1Enemy":
@@ -26,6 +28,8 @@ public class EnemyMovement : MonoBehaviour
             default:
                 break;
         }
+
+
     }
 
     // Update is called once per frame
