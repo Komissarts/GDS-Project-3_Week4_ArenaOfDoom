@@ -45,7 +45,6 @@ GameObject:
   - component: {fileID: -8078713165220554197}
   - component: {fileID: 7908218283338942158}
   - component: {fileID: 6154568908018301905}
-  - component: {fileID: 6007915715035656107}
   - component: {fileID: 6154568908018301917}
   - component: {fileID: 8890376547344443803}
   - component: {fileID: 6154568908018301910}
@@ -70,7 +69,7 @@ Transform:
   m_Children:
   - {fileID: 625364055}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &8938387822833682249
 SpriteRenderer:
@@ -217,24 +216,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lives: 3
-  playMoveClass: {fileID: 5277841553009221228}
-  speedMultiplier: 1.5
-  gravMultiplier: 0.5
-  powerupDuration: 5
---- !u!114 &6007915715035656107
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4211855418452794888}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c7d200120d5cd2844a6951b8957d40ea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  lives: 3
-  playMoveClass: {fileID: 0}
   speedMultiplier: 1.5
   gravMultiplier: 0.5
   powerupDuration: 5
@@ -296,7 +277,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lives: 3
-  playMoveClass: {fileID: 0}
   speedMultiplier: 1.5
   gravMultiplier: 0.5
   powerupDuration: 5
