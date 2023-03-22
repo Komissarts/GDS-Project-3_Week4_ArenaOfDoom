@@ -10,7 +10,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] 
     private GameObject player;
     public Vector2 spawnPos = new Vector3(-15, 1);
-    public GameObject[] enemySpawnPoints;
+    public GameObject[] enemySpawnBoxes;
     public GameObject enemy;
     // Start is called before the first frame update
     private void Awake()
@@ -21,7 +21,7 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        Instantiate(enemy, enemySpawnPoints[0].transform.position, enemy.transform.rotation);
+        Instantiate(enemy, enemySpawnBoxes[0].transform.position, enemy.transform.rotation);
     }
 
     // Update is called once per frame
