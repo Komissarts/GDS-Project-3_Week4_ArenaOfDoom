@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1829317515416484820}
   - component: {fileID: 3133953959035394039}
   - component: {fileID: 5095118698656014189}
+  - component: {fileID: 7959211906887190633}
   m_Layer: 0
   m_Name: EnemyOrb
   m_TagString: EnemyOrb
@@ -161,3 +162,30 @@ MonoBehaviour:
   prevPower: {fileID: 0}
   moveSpeed: 10
   playMoveClass: {fileID: 5277841553009221228, guid: a690bbd3ba18a9d428613bfc875eb039, type: 3}
+--- !u!50 &7959211906887190633
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1829317515416484809}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
