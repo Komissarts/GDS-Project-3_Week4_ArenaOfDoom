@@ -41,5 +41,6 @@ public class GameManager : MonoBehaviour
         player.transform.position = spawnPos;
         player.SetActive(true);
         colM.dead = false;
+        AudioManager.Instance.PlaySFX("S6Respawn");
     }
 }
