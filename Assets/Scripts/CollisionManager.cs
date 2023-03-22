@@ -8,7 +8,8 @@ public class CollisionManager : MonoBehaviour
     BoxCollider2D bc;
     Rigidbody2D rb;
 
-    [SerializeField] int lives = 3;
+    public int lives { get; set; }
+    public bool dead { get; set; }
 
     int score = 0;
     int scoreMultiplier;
@@ -22,10 +23,16 @@ public class CollisionManager : MonoBehaviour
     [SerializeField] int powerupDuration = 5;
 
     // Start is called before the first frame update
-    void Start()
+    private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         bc = GetComponent<BoxCollider2D>();
+    }
+
+    void Start()
+    {
+        lives = 3;
+        dead = false;
     }
 
     // Update is called once per frame
@@ -54,20 +61,6 @@ public class CollisionManager : MonoBehaviour
                 scoreMultiplier = 5;
                 HeightCheck(collision);
                 break;
-            case "Lava":
-                Death(this.gameObject);
-                if (lives > 0)
-                {
-                    lives = lives - 1;
-                }
-                else
-                {
-                    SceneManager.LoadScene("GameOver");
-                }
-                break;
-            case "EnemyOrb":
-                score = score + (100 * 2);
-                break;
             case "GravPowerup":
                 playMoveClass.PlayerRB.gravityScale = playMoveClass.PlayerRB.gravityScale * gravMultiplier;
                 StartCoroutine(GravPowerup(powerupDuration));
@@ -77,6 +70,21 @@ public class CollisionManager : MonoBehaviour
                 StartCoroutine(SpeedPowerup(powerupDuration));
                 break;
             default:
+                break;
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D col)
+    {
+        switch(col.gameObject.tag)
+        {
+            case "Lava":
+                Debug.Log("u die");
+                Death(this.gameObject);
+                break;
+            case "EnemyOrb":
+                Debug.Log("Orb collected");
+                score = score + (100 * 2);
                 break;
         }
     }
@@ -107,7 +115,16 @@ public class CollisionManager : MonoBehaviour
 
     void Death(GameObject obj)
     {
-        Destroy(obj);
+        obj.SetActive(false);
+        dead = true;
+        if (lives > 0)
+        {
+            lives = lives - 1;
+        }
+        else
+        {
+            SceneManager.LoadScene("GameOver");
+        }
     }
 
     IEnumerator GravPowerup(int seconds)

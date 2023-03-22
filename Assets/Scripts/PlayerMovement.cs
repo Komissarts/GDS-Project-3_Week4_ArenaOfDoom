@@ -27,6 +27,11 @@ public class PlayerMovement : MonoBehaviour
     int JumpHeight;
 
     // Start is called before the first frame update
+    private void Awake()
+    {
+        PlayerRB = GetComponent<Rigidbody2D>();
+    }
+
     void Start()
     {
         JumpCounter = 0;
