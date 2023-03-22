@@ -10,8 +10,9 @@ public class GameManager : MonoBehaviour
     [SerializeField] 
     private GameObject player;
     public Vector2 spawnPos = new Vector3(-15, 1);
-    public GameObject[] enemySpawnBoxes;
+    public GameObject[] enemySpawnPoints;
     public GameObject enemy;
+    private bool enemySpawned = false;
     // Start is called before the first frame update
     private void Awake()
     {
@@ -21,7 +22,8 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        Instantiate(enemy, enemySpawnBoxes[0].transform.position, enemy.transform.rotation);
+        SpawnEnemy();
+        SpawnEnemy();
     }
 
     // Update is called once per frame
@@ -33,6 +35,13 @@ public class GameManager : MonoBehaviour
         {
             SceneManager.LoadScene("GameOver");
         }
+
+        if (colM.enemyCount > 0 && colM.enemyCount < 2 )
+           StartCoroutine(RespawnEnemy());
+        else if (colM.enemyCount == 0)
+        {
+            Debug.Log("Congrats!");
+        }
     }
 
     IEnumerator Respawn()
@@ -43,5 +52,30 @@ public class GameManager : MonoBehaviour
         player.SetActive(true);
         colM.dead = false;
         AudioManager.Instance.PlaySFX("S6Respawn");
+    }
+
+    void SpawnEnemy()
+    {
+        int index = Random.Range(0, enemySpawnPoints.Length);
+        Instantiate(enemy, enemySpawnPoints[index].transform.position, Quaternion.identity);
+        AudioManager.Instance.PlaySFX("S9Spawn");
+    }
+
+    IEnumerator RespawnEnemy()
+    {
+        yield return new WaitForSeconds(3);
+        if (enemySpawned == false)
+        {
+            SpawnEnemy();
+            colM.enemyCount += 1;
+            enemySpawned = true;
+            StartCoroutine(SetEnemySpawned());
+        }   
+    }
+
+    IEnumerator SetEnemySpawned()
+    {
+        yield return new WaitForSeconds(2);
+        enemySpawned = false;
     }
 }

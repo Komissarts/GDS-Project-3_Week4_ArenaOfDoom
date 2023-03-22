@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 462054049941707823}
   - component: {fileID: 462054049941707822}
   - component: {fileID: 462054049941707817}
+  - component: {fileID: -7242253471536016122}
   m_Layer: 0
   m_Name: SpawnBox
   m_TagString: Untagged
@@ -105,3 +106,16 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
+--- !u!114 &-7242253471536016122
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 462054049941707816}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93d3dc522a901d94eb8010a7a2efc7b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnPoint: {fileID: 0}
