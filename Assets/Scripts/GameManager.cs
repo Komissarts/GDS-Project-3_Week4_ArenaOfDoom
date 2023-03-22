@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] 
     private GameObject player;
     public Vector2 spawnPos = new Vector3(-15, 1);
+    public GameObject[] enemySpawnBoxes;
     // Start is called before the first frame update
     private void Awake()
     {
@@ -40,5 +41,6 @@ public class GameManager : MonoBehaviour
         player.transform.position = spawnPos;
         player.SetActive(true);
         colM.dead = false;
+        AudioManager.Instance.PlaySFX("S6Respawn");
     }
 }
