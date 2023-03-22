@@ -1060,8 +1060,11 @@ MonoBehaviour:
   colM: {fileID: 0}
   player: {fileID: 6154568908018301904}
   spawnPos: {x: -15, y: 1}
-  enemySpawnBoxes: []
-  enemy: {fileID: 0}
+  enemySpawnPoints:
+  - {fileID: 542875489}
+  - {fileID: 444858145}
+  - {fileID: 603140939}
+  enemy: {fileID: 2352538853331501688, guid: 58e2587fec8ec424085b49ab9454ee38, type: 3}
 --- !u!4 &1019467234
 Transform:
   m_ObjectHideFlags: 0
