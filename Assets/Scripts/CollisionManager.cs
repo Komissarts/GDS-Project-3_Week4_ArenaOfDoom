@@ -118,6 +118,7 @@ public class CollisionManager : MonoBehaviour
         if (dead == false)
         {
             obj.SetActive(false);
+            lives -= 1;
             dead = true;
         }
     }

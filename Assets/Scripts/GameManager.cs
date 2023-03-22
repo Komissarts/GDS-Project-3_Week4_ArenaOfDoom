@@ -27,7 +27,7 @@ public class GameManager : MonoBehaviour
     {
         if (colM.dead == true && colM.lives > 0)
             StartCoroutine(Respawn());
-        else if (colM.dead == true && colM.lives == 0)
+        if (colM.dead == true && colM.lives == 0)
         {
             SceneManager.LoadScene("GameOver");
         }
@@ -35,7 +35,7 @@ public class GameManager : MonoBehaviour
 
     IEnumerator Respawn()
     {
-        colM.lives -= 1;
+        Debug.Log(colM.lives);
         yield return new WaitForSeconds(1);
         player.transform.position = spawnPos;
         player.SetActive(true);
