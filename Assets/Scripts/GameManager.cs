@@ -10,7 +10,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] 
     private GameObject player;
     public Vector2 spawnPos = new Vector3(-15, 1);
-    public GameObject[] enemySpawnBoxes;
+    public GameObject[] enemySpawnPoints;
     public GameObject enemy;
     // Start is called before the first frame update
     private void Awake()
@@ -21,7 +21,7 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        Instantiate(enemy, enemySpawnBoxes[0].transform.position, enemy.transform.rotation);
+        SpawnEnemy();
     }
 
     // Update is called once per frame
@@ -43,5 +43,12 @@ public class GameManager : MonoBehaviour
         player.SetActive(true);
         colM.dead = false;
         AudioManager.Instance.PlaySFX("S6Respawn");
+    }
+
+    void SpawnEnemy()
+    {
+        int index = Random.Range(0, (enemySpawnPoints.Length - 1));
+        Instantiate(enemy, enemySpawnPoints[index].transform.position, Quaternion.identity);
+        AudioManager.Instance.PlaySFX("S9Spawn");
     }
 }
