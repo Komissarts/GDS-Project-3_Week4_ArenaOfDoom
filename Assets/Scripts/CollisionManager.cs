@@ -120,6 +120,7 @@ public class CollisionManager : MonoBehaviour
         if (dead == false)
         {
             obj.SetActive(false);
+            AudioManager.Instance.PlaySFX("S5KilledORKnockedout");
             lives -= 1;
             dead = true;
         }

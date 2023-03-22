@@ -50,9 +50,17 @@ public class PlayerMovement : MonoBehaviour
 
         horizontalInput = Input.GetAxisRaw("Horizontal");
         
-        if(horizontalInput != 0f)
+        if(horizontalInput == 0f && IsGrounded())
         {
-            animator.SetBool("IsMoving", true); //anim
+            animator.SetBool("IsMoving", false); //anim
+            horizontalMaintained = horizontalInput;
+            //horizontalMaintained = 0f;
+        } else if(horizontalInput != 0f && IsGrounded())
+        {
+            animator.SetBool("IsMoving", true);
+            horizontalMaintained = horizontalInput;
+        } else if (horizontalInput != 0f)
+        {
             horizontalMaintained = horizontalInput;
         }
         else
@@ -63,7 +71,7 @@ public class PlayerMovement : MonoBehaviour
         if (PlayerRB.velocity.y == 0f)
         {
             updatedJumpingPower = jumpingPower;
-            horizontalMaintained = 0f;
+            //horizontalMaintained = 0f;
             JumpCounter = 0;
         }
 
@@ -102,6 +110,11 @@ public class PlayerMovement : MonoBehaviour
     private void FixedUpdate()
     {
         PlayerRB.velocity = new Vector2(horizontalMaintained * speed, PlayerRB.velocity.y);
+    }
+
+    private bool IsGrounded()
+    {
+        return Physics2D.OverlapCircle(groundCheck.position, 0.2f, groundLayer);
     }
 
     private void Flip()
