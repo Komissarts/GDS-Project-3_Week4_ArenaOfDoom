@@ -46,7 +46,7 @@ public class GameManager : MonoBehaviour
 
     IEnumerator Respawn()
     {
-        Debug.Log(colM.lives);
+        Debug.Log("Remaining Life: " + colM.lives);
         yield return new WaitForSeconds(1);
         player.transform.position = spawnPos;
         player.SetActive(true);
