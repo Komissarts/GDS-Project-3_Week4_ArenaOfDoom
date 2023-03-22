@@ -11,7 +11,13 @@ public class PlayerMovement : MonoBehaviour
     float movement;
     [SerializeField] float accelRate = 0.5f;
 
-    public float jumpingPower = 16f;
+    [SerializeField] int JumpBonus = 3;
+    [SerializeField] int JumpCounter = 0;
+
+    [SerializeField] public float jumpingPower = 2f;
+
+    [SerializeField] float updatedJumpingPower = 2f;
+
     public bool isFacingRight = false;
 
     [SerializeField] public Rigidbody2D PlayerRB;
@@ -23,7 +29,7 @@ public class PlayerMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        JumpCounter = 0;
     }
 
     // Update is called once per frame
@@ -39,10 +45,24 @@ public class PlayerMovement : MonoBehaviour
             horizontalMaintained = horizontalInput;
         }
 
+        if (PlayerRB.velocity.magnitude == 0f)
+        {
+            updatedJumpingPower = jumpingPower;
+            JumpCounter = 0;
+        }
+
 
         if (Input.GetButtonDown("Jump"))
         {
-            PlayerRB.velocity = new Vector2(PlayerRB.velocity.x, jumpingPower);
+            JumpCounter++;
+            if (JumpCounter <= JumpBonus)
+            {
+                updatedJumpingPower = jumpingPower*JumpCounter;
+            }
+
+            //updatedJumpingPower = jumpingPower * jumpingPower;
+
+            PlayerRB.velocity = new Vector2(PlayerRB.velocity.x, updatedJumpingPower);
         }
         if (Input.GetButtonUp("Jump") && PlayerRB.velocity.y > 0f)
         {
