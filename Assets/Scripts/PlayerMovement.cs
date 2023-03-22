@@ -13,6 +13,7 @@ public class PlayerMovement : MonoBehaviour
 
     [SerializeField] int JumpBonus = 3;
     [SerializeField] int JumpCounter = 0;
+    [SerializeField] private bool isJumping; //anim
 
     [SerializeField] public float jumpingPower = 2f;
 
@@ -26,6 +27,8 @@ public class PlayerMovement : MonoBehaviour
 
     int JumpHeight;
 
+    private Animator animator;
+
     // Start is called before the first frame update
     private void Awake()
     {
@@ -34,6 +37,8 @@ public class PlayerMovement : MonoBehaviour
 
     void Start()
     {
+        animator = GetComponent<Animator>();
+
         JumpCounter = 0;
     }
 
@@ -47,7 +52,12 @@ public class PlayerMovement : MonoBehaviour
         
         if(horizontalInput != 0f)
         {
+            animator.SetBool("IsMoving", true); //anim
             horizontalMaintained = horizontalInput;
+        }
+        else
+        {
+            animator.SetBool("IsMoving", false); //anim
         }
 
         if (PlayerRB.velocity.magnitude == 0f)
@@ -60,6 +70,8 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetButtonDown("Jump"))
         {
             JumpCounter++;
+            animator.SetBool("IsJumping", true); //anim
+            isJumping = true; //anim
             if (JumpCounter <= JumpBonus)
             {
                 updatedJumpingPower = jumpingPower*JumpCounter;
@@ -71,6 +83,8 @@ public class PlayerMovement : MonoBehaviour
         }
         if (Input.GetButtonUp("Jump") && PlayerRB.velocity.y > 0f)
         {
+            animator.SetBool("IsJumping", false); //anim
+            isJumping = false; //anim
             PlayerRB.velocity = new Vector2(PlayerRB.velocity.x, PlayerRB.velocity.y * 0.5f);
             //PlayerRB.AddForce(movement * Vector2.right);
         }

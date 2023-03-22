@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 2144568865366125451}
   - component: {fileID: -8078713165220554197}
   - component: {fileID: -1993203170515841614}
+  - component: {fileID: 7908218283338942158}
   m_Layer: 0
   m_Name: JetpackGuy
   m_TagString: Player
@@ -34,7 +35,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &8938387822833682249
 SpriteRenderer:
@@ -191,3 +192,23 @@ MonoBehaviour:
   speedMultiplier: 1.5
   gravMultiplier: 0.5
   powerupDuration: 5
+--- !u!95 &7908218283338942158
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4211855418452794888}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 81de72f8717cdd74b89d0770b701656e, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
