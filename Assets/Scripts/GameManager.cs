@@ -21,7 +21,7 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        
+        Instantiate(enemy, enemySpawnBoxes[0].transform.position, enemy.transform.rotation);
     }
 
     // Update is called once per frame
