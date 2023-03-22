@@ -50,9 +50,10 @@ public class PlayerMovement : MonoBehaviour
             horizontalMaintained = horizontalInput;
         }
 
-        if (PlayerRB.velocity.magnitude == 0f)
+        if (PlayerRB.velocity.y == 0f)
         {
             updatedJumpingPower = jumpingPower;
+            horizontalMaintained = 0f;
             JumpCounter = 0;
         }
 
