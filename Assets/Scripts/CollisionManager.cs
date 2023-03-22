@@ -139,7 +139,7 @@ public class CollisionManager : MonoBehaviour
     {
         Destroy(obj);
         enemyCount -= 1;
-        Debug.Log(enemyCount);
+        Debug.Log("Enemy: " + enemyCount);
     }
 
     IEnumerator GravPowerup(int seconds)
