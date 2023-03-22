@@ -4,10 +4,14 @@ using UnityEngine;
 
 public class SpawnBox : MonoBehaviour
 {
-    [SerializeField] GameObject[] SpawnPoint;
-    [SerializeField] GameObject objToSpawn;
+    public GameObject spawnPoint;
 
     // Start is called before the first frame update
+    private void Awake()
+    {
+        
+    }
+
     void Start()
     {
         
@@ -19,10 +23,5 @@ public class SpawnBox : MonoBehaviour
         
     }
 
-    void SpawnEnemy()
-    {
-        int index = Random.Range(0, (SpawnPoint.Length));
-        Instantiate(objToSpawn, SpawnPoint[index].transform.position, Quaternion.identity);
-        AudioManager.Instance.PlaySFX("S9Spawn");
-    }
+    
 }
