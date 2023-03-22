@@ -2,8 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEditor;
-using UnityEditor.SceneManagement;
 
 public class ButtonManager : MonoBehaviour
 {
@@ -27,6 +25,5 @@ public class ButtonManager : MonoBehaviour
     public void QuitGame()
     {
         Application.Quit();
-        EditorApplication.Exit(0);
     }
 }
