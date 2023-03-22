@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
     public Vector2 spawnPos = new Vector3(-15, 1);
     public GameObject[] enemySpawnPoints;
     public GameObject enemy;
+    private bool enemySpawned = false;
     // Start is called before the first frame update
     private void Awake()
     {
@@ -21,6 +22,7 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
+        SpawnEnemy();
         SpawnEnemy();
     }
 
@@ -32,6 +34,13 @@ public class GameManager : MonoBehaviour
         if (colM.dead == true && colM.lives == 0)
         {
             SceneManager.LoadScene("GameOver");
+        }
+
+        if (colM.enemyCount > 0 && colM.enemyCount < 2 )
+           StartCoroutine(RespawnEnemy());
+        else if (colM.enemyCount == 0)
+        {
+            Debug.Log("Congrats!");
         }
     }
 
@@ -47,8 +56,26 @@ public class GameManager : MonoBehaviour
 
     void SpawnEnemy()
     {
-        int index = Random.Range(0, (enemySpawnPoints.Length - 1));
+        int index = Random.Range(0, enemySpawnPoints.Length);
         Instantiate(enemy, enemySpawnPoints[index].transform.position, Quaternion.identity);
         AudioManager.Instance.PlaySFX("S9Spawn");
+    }
+
+    IEnumerator RespawnEnemy()
+    {
+        yield return new WaitForSeconds(3);
+        if (enemySpawned == false)
+        {
+            SpawnEnemy();
+            colM.enemyCount += 1;
+            enemySpawned = true;
+            StartCoroutine(SetEnemySpawned());
+        }   
+    }
+
+    IEnumerator SetEnemySpawned()
+    {
+        yield return new WaitForSeconds(2);
+        enemySpawned = false;
     }
 }

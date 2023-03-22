@@ -8,8 +8,9 @@ public class CollisionManager : MonoBehaviour
     BoxCollider2D bc;
     Rigidbody2D rb;
 
-    [SerializeField]
     public int lives = 3;
+
+    public int enemyCount = 2;
     public bool dead { get; set; }
 
     int score = 0;
@@ -94,7 +95,7 @@ public class CollisionManager : MonoBehaviour
     {
         if (collision.gameObject.transform.position.y > this.transform.position.y)
         {
-            Death(this.gameObject);
+            PlayerDeath(this.gameObject);
             if (lives > 0)
             {
                 lives = lives - 1;
@@ -115,7 +116,7 @@ public class CollisionManager : MonoBehaviour
         }
     }
 
-    void Death(GameObject obj)
+    void PlayerDeath(GameObject obj)
     {
         if (dead == false)
         {
@@ -123,6 +124,13 @@ public class CollisionManager : MonoBehaviour
             lives -= 1;
             dead = true;
         }
+    }
+
+    void Death(GameObject obj)
+    {
+        Destroy(obj);
+        enemyCount -= 1;
+        Debug.Log(enemyCount);
     }
 
     IEnumerator GravPowerup(int seconds)
