@@ -8,7 +8,8 @@ public class CollisionManager : MonoBehaviour
     BoxCollider2D bc;
     Rigidbody2D rb;
 
-    [SerializeField] int lives = 3;
+    public int lives { get; set; }
+    public bool dead { get; set; }
 
     int score = 0;
     int scoreMultiplier;
@@ -30,7 +31,8 @@ public class CollisionManager : MonoBehaviour
 
     void Start()
     {
-       
+        lives = 3;
+        dead = false;
     }
 
     // Update is called once per frame
@@ -113,7 +115,8 @@ public class CollisionManager : MonoBehaviour
 
     void Death(GameObject obj)
     {
-        Destroy(obj);
+        obj.SetActive(false);
+        dead = true;
         if (lives > 0)
         {
             lives = lives - 1;

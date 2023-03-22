@@ -4,13 +4,16 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    public GameObject player;
     [SerializeField]
-    private Collider2D playerCol;
+    private CollisionManager colM;
+    [SerializeField] 
+    private GameObject player;
+    public Vector2 spawnPos = new Vector3(-15, 1);
     // Start is called before the first frame update
     private void Awake()
     {
-        playerCol = player.GetComponent<CapsuleCollider2D>();
+        player = GameObject.FindGameObjectWithTag("Player");
+        colM = player.GetComponent<CollisionManager>();
     }
 
     void Start()
@@ -21,8 +24,18 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (colM.dead == true)
+            StartCoroutine(Respawn());
     }
 
-   
+    IEnumerator Respawn()
+    {
+        if (colM.lives > 0)
+        {
+            yield return new WaitForSeconds(1);
+            player.transform.position = spawnPos;
+            player.SetActive(true);
+            colM.dead = false;
+        }
+    }
 }
