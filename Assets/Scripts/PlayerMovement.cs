@@ -60,9 +60,10 @@ public class PlayerMovement : MonoBehaviour
             animator.SetBool("IsMoving", false); //anim
         }
 
-        if (PlayerRB.velocity.magnitude == 0f)
+        if (PlayerRB.velocity.y == 0f)
         {
             updatedJumpingPower = jumpingPower;
+            horizontalMaintained = 0f;
             JumpCounter = 0;
         }
 
