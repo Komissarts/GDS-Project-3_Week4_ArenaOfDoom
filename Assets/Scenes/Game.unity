@@ -4190,7 +4190,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lives: 3
-  playMoveClass: {fileID: 0}
+  playMoveClass: {fileID: 6154568908018301913}
   speedMultiplier: 1.5
   gravMultiplier: 0.5
   powerupDuration: 5
@@ -4221,3 +4221,14 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &6154568908018301913 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5277841553009221228, guid: a690bbd3ba18a9d428613bfc875eb039, type: 3}
+  m_PrefabInstance: {fileID: 6154568908018301903}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6154568908018301904}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b878c3a1ae9e8c748a32200c5d656220, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
